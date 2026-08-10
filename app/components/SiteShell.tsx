@@ -11,14 +11,14 @@ const navItems = [
 
 export function Brand() {
   return (
-    <Link href="/" className="brand" aria-label="Saarth Grains home">
+    <Link href="/" className="brand" aria-label="RKExpo home">
       <span className="brand-mark" aria-hidden="true">
         <i />
         <i />
         <i />
       </span>
       <span className="brand-type">
-        <strong>SAARTH</strong>
+        <strong>RKEXPO</strong>
         <small>GRAINS &amp; EXPORTS</small>
       </span>
     </Link>
@@ -65,7 +65,7 @@ export function Footer() {
       <div className="footer-lead page-shell">
         <p className="eyebrow light">Start a conversation</p>
         <h2>Let’s move good grain<br />across borders.</h2>
-        <Link href="/contact" className="round-arrow" aria-label="Contact Saarth Grains">
+        <Link href="/contact" className="round-arrow" aria-label="Contact RKExpo">
           ↗
         </Link>
       </div>
@@ -80,7 +80,7 @@ export function Footer() {
         </div>
         <div>
           <p className="footer-label">Contact</p>
-          <a href="mailto:exports@saarthgrains.com">exports@saarthgrains.com</a>
+          <a href="mailto:exports@rkexpo.com">exports@rkexpo.com</a>
           <a href="tel:+919876543210">+91 98765 43210</a>
           <span>Rajkot, Gujarat, India</span>
         </div>
@@ -91,7 +91,7 @@ export function Footer() {
         </div>
       </div>
       <div className="footer-bottom page-shell">
-        <span>© 2026 Saarth Grains &amp; Exports</span>
+        <span>© 2026 RKExpo</span>
         <span>Demo catalogue · Specifications subject to contract</span>
       </div>
     </footer>

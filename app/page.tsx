@@ -59,7 +59,7 @@ export default function Home() {
       <section className="origin-story">
         <div className="origin-photo" role="img" aria-label="Rice growing in an Indian field" />
         <div className="origin-copy">
-          <p className="eyebrow light">Why Saarth</p>
+          <p className="eyebrow light">Why RKExpo</p>
           <h2>Closer to origin.<br /><em>Stronger at destination.</em></h2>
           <p>We work across India’s key growing belts, coordinating procurement, cleaning, testing, packing, and export documentation through one accountable trade desk.</p>
           <div className="stat-row">

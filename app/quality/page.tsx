@@ -3,8 +3,8 @@ import Link from "next/link";
 import { PageHero, SiteShell } from "../components/SiteShell";
 
 export const metadata: Metadata = {
-  title: "Quality & Export Process | Saarth Grains",
-  description: "See how Saarth sources, tests, packs, documents, and ships Indian grains.",
+  title: "Quality & Export Process | RKExpo",
+  description: "See how RKExpo sources, tests, packs, documents, and ships Indian grains.",
 };
 
 export default function QualityPage() {

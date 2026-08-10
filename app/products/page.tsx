@@ -3,7 +3,7 @@ import { ProductGrid } from "../components/ProductGrid";
 import { PageHero, SiteShell } from "../components/SiteShell";
 
 export const metadata: Metadata = {
-  title: "Export Grain Catalogue | Saarth Grains",
+  title: "Export Grain Catalogue | RKExpo",
   description: "Browse export-ready rice, pulses, millets, and cereals sourced from India.",
 };
 

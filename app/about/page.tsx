@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PageHero, SiteShell } from "../components/SiteShell";
 
 export const metadata: Metadata = {
-  title: "Our Story | Saarth Grains",
+  title: "Our Story | RKExpo",
   description: "A practical, origin-led Indian grain export partner for international buyers.",
 };
 
@@ -14,7 +14,7 @@ export default function AboutPage() {
         number="03"
         kicker="Our story"
         title={<>Trade should feel<br /><em>closer to the source.</em></>}
-        intro="Saarth was shaped around a simple idea: international buyers deserve clearer origin, steadier communication, and fewer hand-offs."
+        intro="RKExpo was shaped around a simple idea: international buyers deserve clearer origin, steadier communication, and fewer hand-offs."
       />
       <section className="about-mosaic page-shell">
         <div className="about-photo about-photo-field" role="img" aria-label="Golden grain field" />

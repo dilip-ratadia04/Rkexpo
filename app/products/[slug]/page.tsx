@@ -11,7 +11,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const product = getProduct((await params).slug);
   return product
-    ? { title: `${product.name} Exporter | Saarth Grains`, description: product.description }
+    ? { title: `${product.name} Exporter | RKExpo`, description: product.description }
     : {};
 }
 

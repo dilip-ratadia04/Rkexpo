@@ -7,21 +7,20 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "rkexpo.example";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
   const baseUrl = `${protocol}://${host}`;
-
   return {
     metadataBase: new URL(baseUrl),
-    title: "RKExpo | Indian Grains for Global Markets",
-    description: "Premium rice, pulses, millets, and cereals sourced in India and prepared for international buyers.",
+    title: "RKExpo | Dehydrated Ingredients from India",
+    description: "Indian dehydrated onion, garlic, and selected vegetable powders prepared for international buyers.",
     openGraph: {
-      title: "Rooted in India. Ready for the world.",
-      description: "Export-ready rice, pulses, millets, and cereals from India.",
+      title: "Indian ingredients. Ready for the world.",
+      description: "Export-ready dehydrated onion, garlic, and vegetable powders from India.",
       type: "website",
-      images: [{ url: `${baseUrl}/og.png`, width: 1200, height: 630, alt: "RKExpo — Grains & Exports" }],
+      images: [{ url: `${baseUrl}/og.png`, width: 1200, height: 630, alt: "RKExpo — Quality from origin to export" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Rooted in India. Ready for the world.",
-      description: "Export-ready rice, pulses, millets, and cereals from India.",
+      title: "Indian ingredients. Ready for the world.",
+      description: "Export-ready dehydrated onion, garlic, and vegetable powders from India.",
       images: [`${baseUrl}/og.png`],
     },
   };

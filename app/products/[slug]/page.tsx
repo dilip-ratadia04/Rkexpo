@@ -10,9 +10,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const product = getProduct((await params).slug);
-  return product
-    ? { title: `${product.name} Exporter | RKExpo`, description: product.description }
-    : {};
+  return product ? { title: `${product.name} Exporter | RKExpo`, description: product.description } : {};
 }
 
 export default async function ProductDetail({ params }: { params: Promise<{ slug: string }> }) {
@@ -30,6 +28,10 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
             <p className="eyebrow">{product.category} · {product.origin}</p>
             <h1>{product.name}</h1>
             <p className="product-lede">{product.description}</p>
+            <div className="format-list" aria-label="Available formats">
+              <span>Available formats</span>
+              <div>{product.formats.map((format) => <b key={format}>{format}</b>)}</div>
+            </div>
             <div className="spec-grid">
               {product.specs.map((spec) => <div key={spec.label}><span>{spec.label}</span><strong>{spec.value}</strong></div>)}
             </div>
@@ -39,7 +41,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
               <Link className="button button-dark" href={`/contact?product=${product.slug}`}>Request this product <span>↗</span></Link>
               <Link className="text-link" href="/quality">View quality process <span>→</span></Link>
             </div>
-            <p className="spec-note">Indicative specifications. Final parameters are confirmed against contract and pre-shipment sample.</p>
+            <p className="spec-note">Indicative product information. Final parameters are confirmed against contract and pre-shipment sample.</p>
           </div>
         </div>
       </section>

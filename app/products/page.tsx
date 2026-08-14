@@ -3,8 +3,8 @@ import { ProductGrid } from "../components/ProductGrid";
 import { PageHero, SiteShell } from "../components/SiteShell";
 
 export const metadata: Metadata = {
-  title: "Export Grain Catalogue | RKExpo",
-  description: "Browse export-ready rice, pulses, millets, and cereals sourced from India.",
+  title: "Dehydrated Ingredients Catalogue | RKExpo",
+  description: "Browse Indian dehydrated onion, garlic, and selected vegetable powders for international supply.",
 };
 
 export default function ProductsPage() {
@@ -13,8 +13,8 @@ export default function ProductsPage() {
       <PageHero
         number="02"
         kicker="Product catalogue"
-        title={<>Indian staples.<br /><em>Prepared to specification.</em></>}
-        intro="Explore our core export range. Grades, crop year, packing, and testing can be aligned to the requirements of your destination market."
+        title={<>Indian ingredients.<br /><em>Prepared to specification.</em></>}
+        intro="Explore our dehydrated onion, garlic, and powder range. Format, packing, testing, and documentation can be aligned to your destination market."
       />
       <section className="catalog-section page-shell"><ProductGrid /></section>
       <section className="catalog-note page-shell">

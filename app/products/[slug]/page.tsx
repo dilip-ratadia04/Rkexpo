@@ -1,61 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProduct, products } from "@/lib/products";
-import { ProductVisual, SiteShell } from "@/app/components/SiteShell";
-
-export function generateStaticParams() {
-  return products.map((product) => ({ slug: product.slug }));
-}
-
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const product = getProduct((await params).slug);
-  return product ? { title: `${product.name} Exporter | RKExpo`, description: product.description } : {};
-}
-
-export default async function ProductDetail({ params }: { params: Promise<{ slug: string }> }) {
-  const product = getProduct((await params).slug);
-  if (!product) notFound();
-  const related = products.filter((item) => item.slug !== product.slug).slice(0, 3);
-
-  return (
-    <SiteShell>
-      <section className="product-detail page-shell">
-        <div className="product-breadcrumb"><Link href="/products">Catalogue</Link><span>/</span><span>{product.category}</span></div>
-        <div className="product-detail-grid">
-          <div className="product-detail-visual"><ProductVisual className={product.visualClass} label={product.name} /><span>Indian origin</span></div>
-          <div className="product-detail-copy">
-            <p className="eyebrow">{product.category} · {product.origin}</p>
-            <h1>{product.name}</h1>
-            <p className="product-lede">{product.description}</p>
-            <div className="format-list" aria-label="Available formats">
-              <span>Available formats</span>
-              <div>{product.formats.map((format) => <b key={format}>{format}</b>)}</div>
-            </div>
-            <div className="spec-grid">
-              {product.specs.map((spec) => <div key={spec.label}><span>{spec.label}</span><strong>{spec.value}</strong></div>)}
-            </div>
-            <div className="product-list-row"><span>Available packing</span><p>{product.packSizes.join(" · ")}</p></div>
-            <div className="product-list-row"><span>Best suited for</span><p>{product.uses.join(" · ")}</p></div>
-            <div className="detail-actions">
-              <Link className="button button-dark" href={`/contact?product=${product.slug}`}>Request this product <span>↗</span></Link>
-              <Link className="text-link" href="/quality">View quality process <span>→</span></Link>
-            </div>
-            <p className="spec-note">Indicative product information. Final parameters are confirmed against contract and pre-shipment sample.</p>
-          </div>
-        </div>
-      </section>
-      <section className="related-products page-shell">
-        <div className="section-heading"><div><p className="eyebrow">Continue browsing</p><h2>More from the<br /><em>catalogue.</em></h2></div></div>
-        <div className="related-grid">
-          {related.map((item) => (
-            <Link href={`/products/${item.slug}`} key={item.slug}>
-              <ProductVisual className={item.visualClass} label={item.name} />
-              <span>{item.category}</span><h3>{item.shortName}</h3><b>↗</b>
-            </Link>
-          ))}
-        </div>
-      </section>
-    </SiteShell>
-  );
-}
+import { getCmsProducts, getSiteContent } from "@/lib/cms";
+import { SiteShell } from "@/app/components/SiteShell";
+import { ProductVisual } from "@/app/components/ProductVisual";
+export const dynamic = "force-dynamic";
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const [{slug},products]=await Promise.all([params,getCmsProducts()]);const p=products.find((item)=>item.slug===slug);return p?{title:`${p.name} | RKExpo`,description:p.description}:{}}
+export default async function ProductDetail({params}:{params:Promise<{slug:string}>}){const [{slug},products,content]=await Promise.all([params,getCmsProducts(),getSiteContent()]);const p=products.find((item)=>item.slug===slug);if(!p)notFound();const c=content.productsPage;const related=products.filter((item)=>item.slug!==p.slug).slice(0,3);return <SiteShell><section className="product-detail page-shell"><div className="product-breadcrumb"><Link href="/products">{c.breadcrumbLabel}</Link><span>/</span><span>{p.category}</span></div><div className="product-detail-grid"><div className="product-detail-visual"><ProductVisual className={p.visualClass} label={p.name} image={p.image}/><span>{c.originLabel}</span></div><div className="product-detail-copy"><p className="eyebrow">{p.category} · {p.origin}</p><h1>{p.name}</h1><p className="product-lede">{p.description}</p><div className="format-list"><span>{c.availableFormatsLabel}</span><div>{p.formats.map((f)=><b key={f}>{f}</b>)}</div></div><div className="spec-grid">{p.specs.map((s,i)=><div key={i}><span>{s.label}</span><strong>{s.value}</strong></div>)}</div><div className="product-list-row"><span>{c.availablePackingLabel}</span><p>{p.packSizes.join(" · ")}</p></div><div className="product-list-row"><span>{c.suitedForLabel}</span><p>{p.uses.join(" · ")}</p></div><div className="detail-actions"><Link className="button button-dark" href={`/contact?product=${p.slug}`}>{c.requestButton} <span>↗</span></Link><Link className="text-link" href="/quality">{c.qualityButton} <span>→</span></Link></div><p className="spec-note">{c.specificationNote}</p></div></div></section><section className="related-products page-shell"><div className="section-heading"><div><p className="eyebrow">{c.relatedEyebrow}</p><h2>{c.relatedTitle}<br/><em>{c.relatedAccent}</em></h2></div></div><div className="related-grid">{related.map((item)=><Link href={`/products/${item.slug}`} key={item.slug}><ProductVisual className={item.visualClass} label={item.name} image={item.image}/><span>{item.category}</span><h3>{item.shortName}</h3><b>↗</b></Link>)}</div></section></SiteShell>}

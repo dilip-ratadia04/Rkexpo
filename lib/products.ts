@@ -9,6 +9,7 @@ export type Product = {
   description: string;
   accent: string;
   visualClass: string;
+  image: string;
   formats: string[];
   specs: { label: string; value: string }[];
   packSizes: string[];
@@ -32,6 +33,7 @@ export const products: Product[] = [
     description: "Clean, versatile white onion ingredients offered in a complete range of cuts for industrial food production and seasoning blends.",
     accent: "#d8bd86",
     visualClass: "white-onion",
+    image: "",
     formats: ["Flakes", "Kibbled (15–35 mm)", "Chopped", "Minced", "Granules", "Powder"],
     specs: exportSpecs("Dehydrated onion"),
     packSizes: ["10 kg", "20 kg", "25 kg", "Custom export packing"],
@@ -46,6 +48,7 @@ export const products: Product[] = [
     description: "Distinctive red onion flavour and colour, prepared in multiple formats for manufacturers, ingredient distributors, and private labels.",
     accent: "#9e5b57",
     visualClass: "red-onion",
+    image: "",
     formats: ["Slices", "Kibbled (15–35 mm)", "Chopped", "Minced", "Granules", "Powder"],
     specs: exportSpecs("Dehydrated onion"),
     packSizes: ["10 kg", "20 kg", "25 kg", "Custom export packing"],
@@ -60,6 +63,7 @@ export const products: Product[] = [
     description: "Indian pink onion with a balanced savoury profile, available across coarse and fine formats to suit different production lines.",
     accent: "#c88876",
     visualClass: "pink-onion",
+    image: "",
     formats: ["Slices", "Kibbled (15–35 mm)", "Chopped", "Minced", "Granules", "Powder"],
     specs: exportSpecs("Dehydrated onion"),
     packSizes: ["10 kg", "20 kg", "25 kg", "Custom export packing"],
@@ -74,6 +78,7 @@ export const products: Product[] = [
     description: "Aromatic Indian garlic supplied from whole cloves to fine powder for consistent flavour delivery across commercial applications.",
     accent: "#d8cfb6",
     visualClass: "garlic",
+    image: "",
     formats: ["Whole Clove", "Large Chopped", "Chopped", "Grits", "Granules", "Ground", "Powder"],
     specs: exportSpecs("Dehydrated garlic"),
     packSizes: ["10 kg", "20 kg", "25 kg", "Custom export packing"],
@@ -88,6 +93,7 @@ export const products: Product[] = [
     description: "Finely milled curry leaves with a recognisable herbal aroma for spice mixes, ready foods, and regional flavour applications.",
     accent: "#567344",
     visualClass: "curry-leaf",
+    image: "",
     formats: ["Powder"],
     specs: exportSpecs("Leaf powder"),
     packSizes: ["10 kg", "20 kg", "25 kg", "Custom export packing"],
@@ -102,6 +108,7 @@ export const products: Product[] = [
     description: "A convenient potato ingredient for dry formulations, developed for dependable handling in savoury and processed food applications.",
     accent: "#d8bd79",
     visualClass: "potato",
+    image: "",
     formats: ["Powder"],
     specs: exportSpecs("Vegetable powder"),
     packSizes: ["10 kg", "20 kg", "25 kg", "Custom export packing"],
@@ -116,6 +123,7 @@ export const products: Product[] = [
     description: "Vibrant beetroot powder for colour-forward recipes, beverage mixes, nutrition products, and commercial food formulations.",
     accent: "#8f2548",
     visualClass: "beetroot",
+    image: "",
     formats: ["Powder"],
     specs: exportSpecs("Vegetable powder"),
     packSizes: ["10 kg", "20 kg", "25 kg", "Custom export packing"],
@@ -130,6 +138,7 @@ export const products: Product[] = [
     description: "Tangy green mango powder that brings a clean, fruity acidity to seasoning systems, snacks, and prepared foods.",
     accent: "#b69d62",
     visualClass: "amchur",
+    image: "",
     formats: ["Powder"],
     specs: exportSpecs("Green mango powder"),
     packSizes: ["10 kg", "20 kg", "25 kg", "Custom export packing"],

@@ -1,0 +1,2 @@
+import type { CSSProperties } from "react";
+export function ProductVisual({ className, label, image = "" }: { className: string; label: string; image?: string }) { return <div className={`product-visual ${className}`} role="img" aria-label={`${label} ingredient`} style={image ? ({ backgroundImage: `url(${image})`, backgroundSize: "cover", backgroundPosition: "center" } as CSSProperties) : undefined}>{!image && <><span className="grain-shadow" />{Array.from({ length: 22 }).map((_, i) => <i key={i} />)}</>}</div>; }
